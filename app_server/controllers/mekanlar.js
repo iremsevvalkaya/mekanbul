@@ -59,10 +59,10 @@ const mekanBilgisi = function (req, res, next) {
         },
         "yorumlar":[
             {
-                "yorumYapan":"Volkan",
+                "yorumYapan":"İrem",
                 "puan":"3",
                 "tarih":"20 Ekim 2022",
-                "yorumMetni":"Ortalama bir mekan."
+                "yorumMetni":"fena değildi."
             }
         ]
     }
