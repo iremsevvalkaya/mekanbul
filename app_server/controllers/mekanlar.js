@@ -1,83 +1,84 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
+// slash gördüğün zaman function çalışır
 const anaSayfa = function (req, res, next) {
-    res.render('anasayfa',
-    { "baslik": 'Ana sayfa',
-    "sayfaBaslik":{
-        "siteAd":"Mekanbul",
-        "slogan":"Civardaki Mekanları Keşfet!"
+  res.render("anasayfa", {
+    "baslik": "Anasayfa",
+    "sayfaBaslik": {
+      "siteAd": "Mekanbul",
+      "slogan": "Civardaki Mekanları Keşfet!",
     },
     "mekanlar":[
-    {
-        "ad":"Starbucks",
-        "adres":"Centrum Garden AVM",
+      {
+        "ad":"Barida Kafe",
+        "adres":"Sdü Batı Kampüsü",
         "puan":"4",
-        "mesafe":"8 km",
-        "imkanlar":["Kavhe","Çay","Pasta"] 
-    },
-    {
-        "ad":"Gloria Kafe",
+        "mesafe":"2km",
+        "imkanlar":["Kahve","Çay","Pasta"]
+      },
+      {
+        "ad":"Gloria",
         "adres":"Sdü Doğu Kampüsü",
-        "puan":"3",
-        "mesafe":"4 km",
-        "imkanlar":["Kavhe","Çay","Pasta"]  
-    }]
-});
-}
+        "puan":"2",
+        "mesafe":"5km",
+        "imkanlar":["Kahve","Çay","Pasta"]
+      }
+
+
+
+    ]
+  });
+};
 
 const mekanBilgisi = function (req, res, next) {
-    res.render('mekanbilgisi',
-    { "baslik": 'Mekan bilgisi',
-    "mekanBaslik":"Starbucks",
-    "mekanDetay":{
-        "ad":"Starbucks",
-        "adres":"Centrum Garden",
-        "puan":"4",
-        "saatler":[{
-                "gunler":"Pazartesi-Cuma",
-                "acilis":"8.00",
-                "kapanis":"23.00",
-                "kapali": false 
-            },
-            {
-                "gunler":"Cumartesi",
-                "acilis":"9.00",
-                "kapanis":"22.00",
-                "kapali": false
-            },
-            {
-                "gunler":"Pazar",
-                "kapali": true
-            }
-            
-        ],
-        "imkanlar":["Kahve","Çay","Pasta"],
-        "koordinatlar":{
-            "enlem":"37.787",
-            "boylam":"30.568"
+  res.render("mekanbilgisi",
+  { "baslik": "Mekan Bilgisi",
+   "mekanBaslik":"Barida Kafe",
+   "mekanDetay":{
+      "ad":"Barida Kafe",
+      "adres":"Sdü Batı Kampüsü",
+      "puan":"4",
+      "saatler":[
+        {
+          "gunler":"  Pazartesi-Cuma",
+          "acilis":"9:00",
+          "kapanis":"23:00",
+          "kapali": false
         },
-        "yorumlar":[
-            {
-                "yorumYapan":"İrem",
-                "puan":"3",
-                "tarih":"20 Ekim 2022",
-                "yorumMetni":"fena değildi."
-            }
-        ]
-    }
- });
-}
+        {
+          "gunler":"  Cumartesi-Pazar",
+          "acilis":"10:00",
+          "kapanis":"22:00",
+          "kapali": false
+        }
+      ],
+      "imkanlar":["Kahve","Çay","Pasta"],
+      "koordinatlar":{
+        "enlem":"37.7",
+        "boylam":"30.5"
+      },
+      "yorumlar":[
+        
+        {
+          "yorumYapan":"İrem",
+          "puan":"2",
+          "tarih":"20 Ekim 2022",
+          "yorumMetni":"düşman başına"
+        }
+      ]
+
+   }
+
+
+
+
+
+});
+};
 
 const yorumEkle = function (req, res, next) {
-    res.render('yorumekle', { title: 'Yorum ekle' });
-}
+  res.render("yorumekle", { title: "Yorum Sayfası" });
+};
 
-
-module.exports = {
-
-    anaSayfa,
-    mekanBilgisi,
-    yorumEkle
-
-}
+module.exports = { anaSayfa, mekanBilgisi, yorumEkle };
